@@ -3,17 +3,10 @@ Snap.plugin(function(Snap, Element, Paper) {
 	var ARC_PATH = "M{x1},{y1}A{radius},{radius} 0 {large},1 {x2} {y2}";
 	var BRACKET_PATH = "M{x1},{y1}L{x2},{y2}A{radius},{radius} 0 {large},1 {x3} {y3}L{x4},{y4}";
 
-	function getPointOnCircle(x, y, radius, angle) {
-		return {
-			x: x + radius * Math.sin(angle),
-			y: y + -radius * Math.cos(angle)
-		};
-	}
-
 	Paper.prototype.dashedBracket = function(x, y, innerRadius, middleRadius, outerRadius, startAngle, endAngle) {
 
-		var point1 = getPointOnCircle(x, y, innerRadius, startAngle);
-		var point2 = getPointOnCircle(x, y, innerRadius, endAngle);
+		var point1 = Circle.getPointOnCircle(x, y, innerRadius, startAngle);
+		var point2 = Circle.getPointOnCircle(x, y, innerRadius, endAngle);
 
 		var innerArc = this.path(Snap.format(ARC_PATH, {
 			x1: point1.x,
@@ -28,11 +21,11 @@ Snap.plugin(function(Snap, Element, Paper) {
 				fill: 'none'
 			});
 
-		var point3 = getPointOnCircle(x, y, middleRadius, startAngle);
-		var point4 = getPointOnCircle(x, y, middleRadius, endAngle);
+		var point3 = Circle.getPointOnCircle(x, y, middleRadius, startAngle);
+		var point4 = Circle.getPointOnCircle(x, y, middleRadius, endAngle);
 
-		var point5 = getPointOnCircle(x, y, outerRadius, startAngle);
-		var point6 = getPointOnCircle(x, y, outerRadius, endAngle);
+		var point5 = Circle.getPointOnCircle(x, y, outerRadius, startAngle);
+		var point6 = Circle.getPointOnCircle(x, y, outerRadius, endAngle);
 
 		var arc = this.path(Snap.format(BRACKET_PATH, {
 			x1: point5.x,
