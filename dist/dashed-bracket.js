@@ -1,5 +1,5 @@
-define(['circle-utils'],
-function(Circle) {
+define(['snap', 'circle-utils'],
+function(Snap,   Circle) {
 	return Snap.plugin(function(Snap, Element, Paper) {
 
 		var ARC_PATH = "M{x1},{y1}A{radius},{radius} 0 {large},1 {x2} {y2}";
