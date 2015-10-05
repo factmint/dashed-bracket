@@ -6,7 +6,7 @@
   ],
   "description": "Draw a dashed bracket shape outside a circle using Snap.svg",
   "dependencies": {
-    "circle-utils": "https://git.assembla.com/descartes_diaphragm.circle-utils.git"
+    "circle-utils": "https://github.com/factmint/circle-utils.git"
   },
   "main": "dist/dashed-bracket.js",
   "moduleType": [
